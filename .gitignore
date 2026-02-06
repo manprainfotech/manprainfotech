@@ -17,3 +17,20 @@ yarn-error.log*
 # prisma/local db (if using sqlite locally)
 prisma/*.db
 prisma/*.db-journal
+
+# deps/build
+node_modules/
+.next/
+out/
+
+# env
+.env
+.env.*
+!.env.example
+
+# logs
+npm-debug.log*
+
+# prisma/local db
+prisma/*.db
+prisma/*.db-journal
