@@ -27,7 +27,7 @@ export default function AdminLoginPage({
             Invalid password. Please try again.
           </p>
         ) : null}
-        <form method="post" action="/admin/login" className="mt-6 space-y-4">
+        <form method="post" action="/api/admin/login" className="mt-6 space-y-4">
           <div>
             <label className="text-xs font-semibold uppercase tracking-[0.2em] text-steel">
               Password
