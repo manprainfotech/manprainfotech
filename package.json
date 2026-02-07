@@ -7,7 +7,7 @@
     "dev": "next dev -p 5051",
     "start": "next start -p 5051",
     "dev:5000": "next dev -p 5000",
-    "build": "prisma generate && next build",
+    "build": "prisma migrate deploy && prisma generate && next build",
     "lint": "next lint",
     "db:push": "prisma db push",
     "db:seed": "tsx prisma/seed.ts",
