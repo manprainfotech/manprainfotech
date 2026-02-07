@@ -10,14 +10,20 @@ export default function SiteHeader() {
           MANPRA INFOTECH
         </Link>
         <nav className="flex items-center gap-4">
+          <Link href="/#universe-map" className="text-sm font-semibold text-ink/70">
+            Universe Map
+          </Link>
+          <Link href="/#local-availability" className="text-sm font-semibold text-ink/70">
+            Local Availability
+          </Link>
           <Link href="/products" className="text-sm font-semibold text-ink/70">
             Products
           </Link>
           <Link
-            href="/health-check"
+            href="/#talk-to-human"
             className={buttonStyles({ variant: "secondary", size: "sm" })}
           >
-            Health Check
+            Talk to a human
           </Link>
         </nav>
       </Container>
