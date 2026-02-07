@@ -1,6 +1,8 @@
 import { prisma } from "@/lib/prisma";
 import { getSiteUrl } from "@/lib/site";
 
+export const dynamic = "force-dynamic";
+
 function escapeCsv(value: string) {
   const escaped = value.replace(/"/g, '""');
   return `"${escaped}"`;

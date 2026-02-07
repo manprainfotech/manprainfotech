@@ -4,6 +4,8 @@ import { prisma } from "@/lib/prisma";
 import { formatPrice, currency } from "@/lib/format";
 import { getSiteUrl } from "@/lib/site";
 
+export const dynamic = "force-dynamic";
+
 export const revalidate = 60;
 
 type PageProps = {
