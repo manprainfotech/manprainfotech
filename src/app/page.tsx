@@ -6,27 +6,30 @@ import SiteFooter from "@/components/SiteFooter";
 import { Badge, Card, Container, Section } from "@/components/ui";
 import { buttonStyles } from "@/components/ui/Button";
 
+const siteUrl = getSiteUrl();
+
 export const metadata: Metadata = {
-  title: "Manpra Infotech | A Living IT Security Universe",
+  title: "Manpra Infotech | OEM-Direct IT Security & Installations",
   description:
-    "Manpra Infotech is a living IT security universe with local experts, renewal intelligence, and enterprise-grade trust across Chandigarh, Panchkula, and beyond.",
+    "Manpra Infotech is an India-based, OEM-direct IT security and installations partner. Local teams in Chandigarh and Panchkula, PAN-India delivery, and enterprise-grade trust.",
   openGraph: {
-    title: "Manpra Infotech | A Living IT Security Universe",
+    title: "Manpra Infotech | OEM-Direct IT Security & Installations",
     description:
-      "Manpra Infotech is a living IT security universe with local experts, renewal intelligence, and enterprise-grade trust across Chandigarh, Panchkula, and beyond.",
-    url: getSiteUrl(),
+      "Manpra Infotech is an India-based, OEM-direct IT security and installations partner. Local teams in Chandigarh and Panchkula, PAN-India delivery, and enterprise-grade trust.",
+    url: siteUrl,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Manpra Infotech | A Living IT Security Universe",
+    title: "Manpra Infotech | OEM-Direct IT Security & Installations",
     description:
-      "Manpra Infotech is a living IT security universe with local experts, renewal intelligence, and enterprise-grade trust across Chandigarh, Panchkula, and beyond.",
+      "Manpra Infotech is an India-based, OEM-direct IT security and installations partner. Local teams in Chandigarh and Panchkula, PAN-India delivery, and enterprise-grade trust.",
   },
 };
 
 const trustLayer = [
   { title: "GST Registered", detail: "Clean billing and compliance." },
   { title: "MSME Verified", detail: "Government-recognized operations." },
+  { title: "OEM-Direct", detail: "No anonymous marketplace sourcing." },
   { title: "Local Offices", detail: "Chandigarh + Tricity presence." },
   { title: "Google Presence", detail: "Real reviews and visibility." },
 ];
@@ -43,9 +46,9 @@ const memoryBlocks = [
     detail: "We will alert you before it expires.",
   },
   {
-    title: "Renewal pulse",
-    value: "Next check-in: 21 days",
-    detail: "We keep your protection continuous.",
+    title: "OEM sourcing",
+    value: "Direct partners",
+    detail: "Verified OEM channels, no grey market.",
   },
 ];
 
@@ -64,29 +67,85 @@ const flowSteps = [
   },
 ];
 
+const roadmap = [
+  {
+    title: "OEM integrations",
+    description: "New OEM programs onboarding continuously.",
+  },
+  {
+    title: "Fleet intelligence",
+    description: "Real-time renewal intelligence dashboards.",
+  },
+  {
+    title: "Field services",
+    description: "On-site installation scheduling and alerts.",
+  },
+];
+
+const locations = [
+  {
+    title: "Chandigarh",
+    detail: "Installation & Support Hub",
+  },
+  {
+    title: "Panchkula",
+    detail: "Operations & Projects Hub",
+  },
+];
+
 export default function HomePage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        name: "Manpra Infotech Pvt. Ltd.",
+        url: siteUrl,
+        telephone: "+91 7009955770",
+        areaServed: ["Chandigarh", "Panchkula", "Mohali", "India"],
+        address: {
+          "@type": "PostalAddress",
+          addressCountry: "IN",
+          addressRegion: "Chandigarh",
+        },
+      },
+      {
+        "@type": "Service",
+        name: "CCTV Installation",
+        provider: { "@type": "LocalBusiness", name: "Manpra Infotech Pvt. Ltd." },
+        areaServed: "India",
+      },
+      {
+        "@type": "Service",
+        name: "Networking & Structured Cabling",
+        provider: { "@type": "LocalBusiness", name: "Manpra Infotech Pvt. Ltd." },
+        areaServed: "India",
+      },
+    ],
+  };
+
   return (
     <main>
       <SiteHeader />
 
       <Section className="pt-20">
         <Container>
-          <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
             <div>
               <Badge>Manpra IT Universe</Badge>
               <h1 className="mt-6 font-display text-4xl font-semibold tracking-tight text-ink sm:text-5xl lg:text-6xl">
-                A living security system for every device you rely on.
+                A living IT security system for modern India.
               </h1>
               <p className="mt-6 text-lg text-steel">
-                Local-first experts, renewal intelligence, and enterprise-level
-                trust — built for Chandigarh, Panchkula, and beyond.
+                OEM-direct sourcing, local installation teams, and renewal
+                intelligence designed for enterprises and governments.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link
-                  href="/#talk-to-human"
+                  href="/services"
                   className={buttonStyles({ size: "lg" })}
                 >
-                  Talk to a human
+                  Talk to an engineer
                 </Link>
                 <Link
                   href="/#universe-map"
@@ -102,7 +161,7 @@ export default function HomePage() {
                 <span className="rounded-full bg-white/70 px-4 py-2">
                   Panchkula
                 </span>
-                <span className="rounded-full bg-white/70 px-4 py-2">Mohali</span>
+                <span className="rounded-full bg-white/70 px-4 py-2">PAN India</span>
               </div>
             </div>
             <Card className="relative overflow-hidden">
@@ -118,8 +177,7 @@ export default function HomePage() {
                   Living protection, always on.
                 </h2>
                 <p className="mt-3 text-sm text-steel">
-                  A connected layer of devices, licenses, and renewals that
-                  adapts to you.
+                  Devices, renewals, and human support syncing in real time.
                 </p>
                 <div className="relative mt-6 h-40 rounded-2xl bg-ink/95 p-4">
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(132,246,255,0.18),transparent_55%)]" />
@@ -180,7 +238,7 @@ export default function HomePage() {
                 Everything connected. Nothing forgotten.
               </h2>
               <p className="mt-4 text-sm text-steel">
-                Devices, licenses, renewals, and human support move together in
+                Devices, licenses, renewals, and on-ground teams move together in
                 one living system.
               </p>
               <div className="mt-6 flex flex-wrap gap-3 text-xs uppercase tracking-[0.3em] text-steel">
@@ -191,7 +249,7 @@ export default function HomePage() {
                   Renewal intelligence
                 </span>
                 <span className="rounded-full bg-white/70 px-3 py-1">
-                  Local response
+                  OEM direct
                 </span>
               </div>
             </div>
@@ -209,7 +267,7 @@ export default function HomePage() {
                 <div className="absolute left-12 bottom-12 h-16 w-[1px] bg-white/10" />
               </div>
               <p className="relative text-xs text-white/70">
-                Map pulses as devices and renewals sync.
+                Map pulses as assets and renewals sync.
               </p>
             </Card>
           </div>
@@ -243,18 +301,18 @@ export default function HomePage() {
         <Container>
           <div
             id="local-availability"
-            className="grid gap-8 lg:grid-cols-[0.5fr_0.5fr]"
+            className="grid gap-8 lg:grid-cols-[0.6fr_0.4fr]"
           >
             <Card className="relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-white via-white/60 to-aurora/30 animate-[drift_14s_ease-in-out_infinite]" />
               <div className="relative">
                 <Badge>Local availability</Badge>
                 <h2 className="mt-4 text-3xl font-semibold text-ink">
-                  Chandigarh + Tricity on-ground support.
+                  Chandigarh + Panchkula on-ground teams.
                 </h2>
                 <p className="mt-4 text-sm text-steel">
-                  Real people nearby. Fast site visits, on-call advice, and
-                  locally sourced hardware.
+                  Installation crews, service engineers, and project leads ready
+                  for site visits and enterprise rollouts.
                 </p>
                 <div className="mt-6 flex flex-wrap gap-3 text-xs uppercase tracking-[0.3em] text-steel">
                   <span className="rounded-full bg-white/70 px-3 py-1">
@@ -268,37 +326,24 @@ export default function HomePage() {
             </Card>
             <Card>
               <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-steel">
-                Live coverage
+                Hubs
               </h3>
               <div className="mt-6 space-y-4 text-sm text-steel">
-                <div>
-                  <div className="flex items-center justify-between">
-                    <span>Chandigarh</span>
-                    <span className="text-ink">Active</span>
+                {locations.map((location) => (
+                  <div key={location.title}>
+                    <p className="text-base font-semibold text-ink">
+                      {location.title}
+                    </p>
+                    <p className="text-sm text-steel">{location.detail}</p>
                   </div>
-                  <div className="mt-2 h-2 rounded-full bg-mist">
-                    <div className="h-2 w-[78%] rounded-full bg-neon" />
-                  </div>
-                </div>
-                <div>
-                  <div className="flex items-center justify-between">
-                    <span>Panchkula</span>
-                    <span className="text-ink">Active</span>
-                  </div>
-                  <div className="mt-2 h-2 rounded-full bg-mist">
-                    <div className="h-2 w-[64%] rounded-full bg-aurora" />
-                  </div>
-                </div>
-                <div>
-                  <div className="flex items-center justify-between">
-                    <span>Mohali</span>
-                    <span className="text-ink">Active</span>
-                  </div>
-                  <div className="mt-2 h-2 rounded-full bg-mist">
-                    <div className="h-2 w-[70%] rounded-full bg-dusk" />
-                  </div>
-                </div>
+                ))}
               </div>
+              <Link
+                href="/locations"
+                className="mt-6 inline-flex text-sm font-semibold text-ink"
+              >
+                View locations
+              </Link>
             </Card>
           </div>
         </Container>
@@ -306,7 +351,7 @@ export default function HomePage() {
 
       <Section>
         <Container>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-5">
             {trustLayer.map((item) => (
               <Card key={item.title} className="p-6">
                 <h3 className="text-base font-semibold text-ink">
@@ -323,51 +368,26 @@ export default function HomePage() {
         <Container>
           <Card className="flex flex-col gap-8 bg-gradient-to-br from-white via-white/70 to-neon/20">
             <div>
-              <Badge>Renewal intelligence</Badge>
+              <Badge>Roadmap</Badge>
               <h2 className="mt-4 text-3xl font-semibold text-ink">
-                Renewal and warranty signals, always visible.
+                Built for OEMs and enterprise scale.
               </h2>
               <p className="mt-3 text-sm text-steel">
-                No spreadsheets, no missed renewals. We surface what is expiring
-                before it becomes urgent.
+                We are building a future-ready stack where OEMs, engineers, and
+                enterprises stay connected.
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-3">
-              <Card className="bg-white/90">
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-steel">
-                  Auto renewal reminder
-                </p>
-                <h3 className="mt-3 text-lg font-semibold text-ink">
-                  Next signal in 14 days
-                </h3>
-                <p className="mt-2 text-sm text-steel">
-                  We alert you early and keep approvals simple.
-                </p>
-              </Card>
-              <Card className="bg-white/90">
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-steel">
-                  Warranty expiry alert
-                </p>
-                <h3 className="mt-3 text-lg font-semibold text-ink">
-                  Coverage end: Sep 2026
-                </h3>
-                <p className="mt-2 text-sm text-steel">
-                  Coverage gaps are surfaced before they happen.
-                </p>
-              </Card>
-              <Card id="talk-to-human" className="bg-white/90">
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-steel">
-                  Talk to a human expert
-                </p>
-                <h3 className="mt-3 text-lg font-semibold text-ink">
-                  Real people, fast answers
-                </h3>
-                <p className="mt-2 text-sm text-steel">
-                  Get guidance on security, renewals, and hardware planning.
-                </p>
-              </Card>
+              {roadmap.map((item) => (
+                <Card key={item.title} className="bg-white/90">
+                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-steel">
+                    {item.title}
+                  </p>
+                  <p className="mt-3 text-sm text-ink">{item.description}</p>
+                </Card>
+              ))}
             </div>
-            <div>
+            <div id="talk-to-human">
               <Link href="/contact" className={buttonStyles({ size: "lg" })}>
                 Start a conversation
               </Link>
@@ -381,19 +401,19 @@ export default function HomePage() {
           <Card className="flex flex-col gap-6 bg-gradient-to-br from-white via-white/70 to-aurora/30">
             <div>
               <h2 className="text-3xl font-semibold text-ink">
-                Security that feels personal, not corporate.
+                India-first, enterprise-ready, and deeply local.
               </h2>
               <p className="mt-3 text-lg text-steel">
-                We operate like a living system — always aware, always ready,
-                always human.
+                We combine OEM-direct sourcing with on-ground execution and
+                long-term support.
               </p>
             </div>
             <div className="flex flex-wrap gap-4">
-              <Link href="/products" className={buttonStyles({ size: "lg" })}>
-                Explore protection plans
+              <Link href="/services" className={buttonStyles({ size: "lg" })}>
+                Explore services
               </Link>
               <Link
-                href="/#local-availability"
+                href="/locations"
                 className={buttonStyles({ variant: "secondary", size: "lg" })}
               >
                 See local availability
@@ -404,6 +424,11 @@ export default function HomePage() {
       </Section>
 
       <SiteFooter />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
     </main>
   );
 }

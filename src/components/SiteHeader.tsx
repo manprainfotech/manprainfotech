@@ -9,19 +9,16 @@ export default function SiteHeader() {
         <Link href="/" className="text-sm font-semibold tracking-[0.3em] text-steel">
           MANPRA INFOTECH
         </Link>
-        <nav className="flex items-center gap-4">
-          <Link href="/#universe-map" className="text-sm font-semibold text-ink/70">
-            Universe Map
-          </Link>
-          <Link href="/#local-availability" className="text-sm font-semibold text-ink/70">
-            Local Availability
-          </Link>
-          <Link href="/products" className="text-sm font-semibold text-ink/70">
-            Products
-          </Link>
+        <nav className="flex flex-wrap items-center justify-end gap-x-6 gap-y-2 text-xs font-semibold uppercase tracking-[0.2em] text-ink/70">
+          <Link href="/about">About Manpra</Link>
+          <Link href="/services">Services</Link>
+          <Link href="/installations">Installations</Link>
+          <Link href="/brands">Brands</Link>
+          <Link href="/knowledge-hub">Knowledge Hub</Link>
+          <Link href="/locations">Contact / Locations</Link>
           <Link
             href="/#talk-to-human"
-            className={buttonStyles({ variant: "secondary", size: "sm" })}
+            className={buttonStyles({ variant: "secondary", size: "sm", className: "normal-case tracking-normal text-ink" })}
           >
             Talk to a human
           </Link>

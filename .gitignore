@@ -34,3 +34,5 @@ npm-debug.log*
 # prisma/local db
 prisma/*.db
 prisma/*.db-journal
+.vercel
+.env*.local
