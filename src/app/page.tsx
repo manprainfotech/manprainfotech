@@ -7,133 +7,75 @@ import { Badge, Card, Container, Section } from "@/components/ui";
 import { buttonStyles } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-  title: "Manpra Infotech | Instant Antivirus Licenses, Trusted Delivery",
+  title: "Manpra Infotech | Premium Antivirus Licenses, Instant Delivery",
   description:
-    "Buy genuine antivirus licenses with instant email and WhatsApp delivery. Clear support, GST invoice, and premium protection for every device.",
+    "Buy genuine antivirus licenses with instant email and WhatsApp delivery. Premium protection, GST invoices, and trusted local support.",
   openGraph: {
-    title: "Manpra Infotech | Instant Antivirus Licenses, Trusted Delivery",
+    title: "Manpra Infotech | Premium Antivirus Licenses, Instant Delivery",
     description:
-      "Buy genuine antivirus licenses with instant email and WhatsApp delivery. Clear support, GST invoice, and premium protection for every device.",
+      "Buy genuine antivirus licenses with instant email and WhatsApp delivery. Premium protection, GST invoices, and trusted local support.",
     url: getSiteUrl(),
   },
   twitter: {
     card: "summary_large_image",
-    title: "Manpra Infotech | Instant Antivirus Licenses, Trusted Delivery",
+    title: "Manpra Infotech | Premium Antivirus Licenses, Instant Delivery",
     description:
-      "Buy genuine antivirus licenses with instant email and WhatsApp delivery. Clear support, GST invoice, and premium protection for every device.",
+      "Buy genuine antivirus licenses with instant email and WhatsApp delivery. Premium protection, GST invoices, and trusted local support.",
   },
 };
 
-const heroTags = [
-  "Instant delivery",
-  "Genuine licenses",
-  "Local support",
-  "Secure payments",
-];
-
-const categoryTiles = [
-  {
-    id: "antivirus",
-    title: "Antivirus & Renewals",
-    description: "Protection that arrives before threats do.",
-    meta: "Instant delivery, trusted vendors",
-  },
-  {
-    id: "cctv",
-    title: "CCTV & Physical Security",
-    description: "Visibility that keeps homes and offices calm.",
-    meta: "Local Tricity focus",
-  },
-  {
-    id: "cloud",
-    title: "IT & Cloud Subscriptions",
-    description: "Workspaces that stay secure, fast, and compliant.",
-    meta: "M365, Google Workspace",
-  },
-];
-
-const universeEntries = [
-  {
-    id: "antivirus",
-    title: "Antivirus & Renewals",
-    subtitle: "Instant delivery, renewal-ready.",
-    description:
-      "Genuine licenses delivered by email and WhatsApp within minutes. Renewal reminders and activation help, included.",
-    ctaLabel: "Browse antivirus",
-    ctaHref: "/products",
-    bullets: [
-      "Original keys from trusted distributors",
-      "Fast renewal support with GST invoices",
-      "Guided activation when you need it",
-    ],
-  },
-  {
-    id: "cctv",
-    title: "CCTV & Physical Security",
-    subtitle: "Local expertise across Chandigarh and Tricity.",
-    description:
-      "Thoughtful camera selection, installation guidance, and maintenance planning for homes and offices.",
-    ctaLabel: "Talk to an expert",
-    ctaHref: "#talk-to-expert",
-    bullets: [
-      "Site assessment and placement advice",
-      "Trusted brands and warranty planning",
-      "Ongoing maintenance, no confusion",
-    ],
-  },
-  {
-    id: "cloud",
-    title: "IT & Cloud Subscriptions",
-    subtitle: "Modern work tools without the chaos.",
-    description:
-      "Microsoft 365, Google Workspace, and secure add-ons set up to keep teams productive and compliant.",
-    ctaLabel: "Plan a workspace",
-    ctaHref: "#talk-to-expert",
-    bullets: [
-      "Subscription planning and renewals",
-      "Secure onboarding and migration help",
-      "Global-ready admin guidance",
-    ],
-  },
-];
-
-const trustLayer = [
+const trustPillars = [
   {
     title: "Instant Delivery",
-    description: "Keys and confirmations arrive within minutes.",
+    description: "License keys sent within minutes on email + WhatsApp.",
   },
   {
     title: "Genuine Licenses",
-    description: "Only original, verified licenses.",
+    description: "Original keys sourced from trusted distributors only.",
   },
   {
-    title: "Local Support",
-    description: "Chandigarh + Tricity based help.",
+    title: "WhatsApp Support",
+    description: "Fast help for activation and renewals when you need it.",
   },
   {
-    title: "Secure Payments",
-    description: "Protected checkout and clear invoices.",
-  },
-  {
-    title: "Warranty & Renewal Support",
-    description: "We help you stay protected year after year.",
+    title: "GST Invoice",
+    description: "Clean billing for personal and business purchases.",
   },
 ];
 
-const futureHooks = [
+const brands = [
+  "Quick Heal",
+  "Kaspersky",
+  "McAfee",
+  "Norton",
+  "Bitdefender",
+  "ESET",
+  "Avast",
+  "Sophos",
+  "Trend Micro",
+  "Malwarebytes",
+];
+
+const howItWorks = [
   {
-    title: "Auto Renewal Reminder",
-    description: "Never miss a license expiry or service window.",
+    title: "Choose your plan",
+    description: "Pick device count and duration that fits your needs.",
   },
   {
-    title: "Warranty Expiry Alerts",
-    description: "Stay ahead of coverage gaps with smart alerts.",
+    title: "Pay securely",
+    description: "Fast checkout with clear pricing and instant confirmation.",
   },
   {
-    title: "Talk to a Human Expert",
-    description: "Direct access to someone who understands your setup.",
-    id: "talk-to-expert",
+    title: "Get protected",
+    description: "We deliver the key and setup steps immediately.",
   },
+];
+
+const whyChoose = [
+  "Verified vendors and original license keys",
+  "Instant delivery across India and worldwide",
+  "Support that replies in minutes",
+  "Transparent pricing with GST invoices",
 ];
 
 export default function HomePage() {
@@ -161,7 +103,7 @@ export default function HomePage() {
                   Browse Products
                 </Link>
                 <Link
-                  href="/health"
+                  href="/health-check"
                   className={buttonStyles({ variant: "secondary", size: "lg" })}
                 >
                   Health Check
@@ -184,115 +126,66 @@ export default function HomePage() {
                   You are protected in minutes. No noise. No delays. Just real
                   security that lets you move on.
                 </p>
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {heroTags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full bg-white/80 px-4 py-2 text-xs font-semibold text-steel"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
               </div>
             </Card>
           </div>
         </Container>
       </Section>
 
-      <Section className="pt-0">
+      <Section>
         <Container>
-          <div className="grid gap-6 lg:grid-cols-3">
-            {categoryTiles.map((tile) => (
-              <Link
-                key={tile.id}
-                href={`#${tile.id}`}
-                className="group relative overflow-hidden rounded-3xl border border-white/70 bg-white/80 p-8 shadow-card transition hover:-translate-y-1 hover:shadow-soft"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-white via-white/70 to-transparent opacity-0 transition group-hover:opacity-100" />
-                <div className="relative">
-                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-steel">
-                    {tile.meta}
-                  </p>
-                  <h2 className="mt-4 text-2xl font-semibold text-ink">
-                    {tile.title}
-                  </h2>
-                  <p className="mt-3 text-sm text-steel">{tile.description}</p>
-                  <span className="mt-6 inline-flex items-center text-sm font-semibold text-ink">
-                    Explore
-                  </span>
-                </div>
-              </Link>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {trustPillars.map((pillar) => (
+              <Card key={pillar.title} className="p-6">
+                <h3 className="text-base font-semibold text-ink">
+                  {pillar.title}
+                </h3>
+                <p className="mt-2 text-sm text-steel">{pillar.description}</p>
+              </Card>
             ))}
           </div>
         </Container>
       </Section>
 
-      {universeEntries.map((entry) => (
-        <Section key={entry.id} className="pt-0">
-          <Container>
-            <div
-              id={entry.id}
-              className="grid gap-8 rounded-3xl border border-white/70 bg-white/70 p-8 shadow-card lg:grid-cols-[0.6fr_0.4fr]"
-            >
-              <div>
-                <Badge>Universe</Badge>
-                <h2 className="mt-4 text-3xl font-semibold text-ink">
-                  {entry.title}
-                </h2>
-                <p className="mt-2 text-sm font-semibold uppercase tracking-[0.3em] text-steel">
-                  {entry.subtitle}
-                </p>
-                <p className="mt-4 text-sm text-steel">{entry.description}</p>
-                <div className="mt-6">
-                  <Link
-                    href={entry.ctaHref}
-                    className={buttonStyles({ variant: "secondary", size: "sm" })}
-                  >
-                    {entry.ctaLabel}
-                  </Link>
-                </div>
-              </div>
-              <Card className="bg-white/90">
-                <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-steel">
-                  What we deliver
-                </h3>
-                <ul className="mt-4 space-y-3 text-sm text-steel">
-                  {entry.bullets.map((bullet) => (
-                    <li key={bullet} className="flex gap-2">
-                      <span className="text-neon">●</span>
-                      <span>{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-              </Card>
+      <Section className="pt-0">
+        <Container>
+          <div className="rounded-3xl border border-white/70 bg-white/70 px-6 py-10 shadow-card">
+            <h2 className="text-center text-sm font-semibold uppercase tracking-[0.4em] text-steel">
+              Trusted by global antivirus brands
+            </h2>
+            <div className="mt-6 flex flex-wrap justify-center gap-4 text-sm text-steel">
+              {brands.map((brand) => (
+                <span key={brand} className="rounded-full bg-white/80 px-4 py-2">
+                  {brand}
+                </span>
+              ))}
             </div>
-          </Container>
-        </Section>
-      ))}
+            <p className="mt-6 text-center text-xs text-steel/70">
+              Logos used for brand recognition only.
+            </p>
+          </div>
+        </Container>
+      </Section>
 
       <Section>
         <Container>
-          <div className="flex flex-col gap-6">
+          <div className="grid gap-8 lg:grid-cols-[0.4fr_0.6fr]">
             <div>
-              <Badge>Trust layer</Badge>
+              <Badge>How it works</Badge>
               <h2 className="mt-4 text-3xl font-semibold text-ink">
-                Built for calm, built for trust.
+                Secure in three simple steps
               </h2>
-              <p className="mt-3 text-sm text-steel">
-                Everything we deliver is designed to remove uncertainty and keep
-                your security simple.
-              </p>
             </div>
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-5">
-              {trustLayer.map((pillar) => (
-                <Card key={pillar.title} className="p-5">
-                  <h3 className="text-base font-semibold text-ink">
-                    {pillar.title}
-                  </h3>
-                  <p className="mt-2 text-sm text-steel">
-                    {pillar.description}
+            <div className="grid gap-6 md:grid-cols-3">
+              {howItWorks.map((step, index) => (
+                <Card key={step.title}>
+                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-steel">
+                    Step {index + 1}
                   </p>
+                  <h3 className="mt-3 text-lg font-semibold text-ink">
+                    {step.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-steel">{step.description}</p>
                 </Card>
               ))}
             </div>
@@ -302,35 +195,28 @@ export default function HomePage() {
 
       <Section>
         <Container>
-          <Card className="flex flex-col gap-8 bg-gradient-to-br from-white via-white/70 to-neon/20">
+          <div className="grid gap-10 lg:grid-cols-[0.55fr_0.45fr]">
             <div>
-              <Badge>Coming next</Badge>
+              <Badge>Why Manpra</Badge>
               <h2 className="mt-4 text-3xl font-semibold text-ink">
-                Automations that keep you protected.
+                Why choose Manpra Infotech
               </h2>
-              <p className="mt-3 text-sm text-steel">
-                These tools are designed to reduce manual follow-ups and keep
-                your protection uninterrupted.
+              <p className="mt-4 text-lg text-steel">
+                Security should feel simple. We deliver real licenses fast, with
+                clear support and honest pricing. No noise. Just protection.
               </p>
             </div>
-            <div className="grid gap-6 md:grid-cols-3">
-              {futureHooks.map((hook) => (
-                <Card
-                  key={hook.title}
-                  className="bg-white/90"
-                >
-                  <div id={hook.id}>
-                    <h3 className="text-lg font-semibold text-ink">
-                      {hook.title}
-                    </h3>
-                    <p className="mt-2 text-sm text-steel">
-                      {hook.description}
-                    </p>
-                  </div>
-                </Card>
-              ))}
-            </div>
-          </Card>
+            <Card>
+              <ul className="space-y-3 text-sm text-steel">
+                {whyChoose.map((item) => (
+                  <li key={item} className="flex gap-2">
+                    <span className="text-neon">●</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </Card>
+          </div>
         </Container>
       </Section>
 
@@ -339,16 +225,16 @@ export default function HomePage() {
           <Card className="flex flex-col gap-6 bg-gradient-to-br from-white via-white/70 to-aurora/30">
             <div>
               <h2 className="text-3xl font-semibold text-ink">
-                One partner for digital and physical security.
+                Protection that respects your time
               </h2>
               <p className="mt-3 text-lg text-steel">
-                Whether you are renewing antivirus or planning new security
-                infrastructure, we keep the experience premium and simple.
+                No delays. No confusion. Get protected in minutes and move on
+                with confidence.
               </p>
             </div>
             <div>
               <Link href="/products" className={buttonStyles({ size: "lg" })}>
-                Browse Antivirus Plans
+                Browse Products
               </Link>
             </div>
           </Card>

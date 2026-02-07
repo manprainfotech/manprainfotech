@@ -13,7 +13,10 @@ export default function SiteHeader() {
           <Link href="/products" className="text-sm font-semibold text-ink/70">
             Products
           </Link>
-          <Link href="/health" className={buttonStyles({ variant: "secondary", size: "sm" })}>
+          <Link
+            href="/health-check"
+            className={buttonStyles({ variant: "secondary", size: "sm" })}
+          >
             Health Check
           </Link>
         </nav>
