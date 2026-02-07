@@ -23,12 +23,17 @@ const services = [
       "Reliable networks built for speed, uptime, and future expansion.",
   },
   {
-    title: "IT Consulting & Managed Services",
+    title: "IT Consulting",
     description:
-      "On-demand experts for infrastructure planning, upgrades, and daily support.",
+      "On-demand experts for infrastructure planning, upgrades, and execution.",
   },
   {
-    title: "Security Audits & Health Checks",
+    title: "Managed Services",
+    description:
+      "Ongoing monitoring, renewals, and operational support for IT stacks.",
+  },
+  {
+    title: "Security Health Checks",
     description:
       "Identify vulnerabilities, compliance gaps, and renewal risks early.",
   },

@@ -17,10 +17,14 @@ export default function SiteHeader() {
           <Link href="/knowledge-hub">Knowledge Hub</Link>
           <Link href="/locations">Contact / Locations</Link>
           <Link
-            href="/#talk-to-human"
-            className={buttonStyles({ variant: "secondary", size: "sm", className: "normal-case tracking-normal text-ink" })}
+            href="https://wa.me/917009955770"
+            className={buttonStyles({
+              variant: "secondary",
+              size: "sm",
+              className: "normal-case tracking-normal text-ink",
+            })}
           >
-            Talk to a human
+            WhatsApp: +91 7009955770
           </Link>
         </nav>
       </Container>

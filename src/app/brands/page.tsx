@@ -46,6 +46,10 @@ export default function BrandsPage() {
             We work directly with OEMs. New partners are onboarding continuously
             as we expand across India.
           </p>
+          <p className="mt-3 text-sm text-steel">
+            OEMs can partner with Manpra for direct market access and
+            on-ground execution.
+          </p>
         </Container>
       </Section>
 
@@ -69,7 +73,8 @@ export default function BrandsPage() {
                 Upcoming OEM integrations
               </h2>
               <p className="mt-3 text-sm text-steel">
-                We work directly with OEMs. New partners onboarding continuously.
+                We onboard OEM partners continuously. OEMs can partner with
+                Manpra for direct execution and trusted delivery.
               </p>
               <div className="mt-5 flex flex-wrap gap-3 text-sm text-steel">
                 {upcomingBrands.map((brand) => (
