@@ -69,6 +69,9 @@ export default function LocationsPage() {
                 >
                   View on Google Maps
                 </a>
+                <p className="mt-4 text-sm text-steel">
+                  📞 +91 7009955770 · WhatsApp Enabled · Mon–Sat 9am–7pm
+                </p>
               </Card>
             ))}
           </div>
