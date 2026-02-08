@@ -87,6 +87,9 @@ export default function SiteFooter() {
           </div>
         </div>
         <p className="mt-10 text-xs text-steel/70">
+          GST invoice available • Secure checkout • Genuine keys only
+        </p>
+        <p className="mt-2 text-xs text-steel/70">
           Built in India. Designed for enterprises that value trust, compliance,
           and human support.
         </p>

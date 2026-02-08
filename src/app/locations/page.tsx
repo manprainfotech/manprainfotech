@@ -21,15 +21,13 @@ const locations = [
     title: "Chandigarh",
     subtitle: "Installation & Support Hub",
     detail: "On-site deployment, hardware planning, and rapid response teams.",
-    mapLink:
-      "https://www.google.com/maps/search/?api=1&query=Manpra+Infotech+Chandigarh",
+    mapLink: "https://share.google/10b79ZmSpnFKk7ctr",
   },
   {
     title: "Panchkula",
     subtitle: "Operations & Projects Hub",
     detail: "Project management, OEM coordination, and enterprise delivery.",
-    mapLink:
-      "https://www.google.com/maps/search/?api=1&query=Manpra+Infotech+Panchkula",
+    mapLink: "https://share.google/v3yFFRT46lKt9MfRt",
   },
 ];
 

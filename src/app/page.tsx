@@ -4,43 +4,36 @@ import { getSiteUrl } from "@/lib/site";
 import { formatPrice } from "@/lib/format";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
-import PromoSlider from "@/components/PromoSlider";
+import FastBuyButton from "@/components/FastBuyButton";
 import { Badge, Card, Container, Section } from "@/components/ui";
 import { buttonStyles } from "@/components/ui/Button";
 
 const siteUrl = getSiteUrl();
 const whatsappNumber = "917009955770";
 const whatsappMessage = encodeURIComponent(
-  "Hello Manpra Infotech, I want to order with OEM-direct support."
+  "Hi Manpra Infotech, I want the Deal of the Week antivirus key."
 );
 const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
 export const metadata: Metadata = {
-  title: "Manpra Infotech — OEM-direct Digital Security + IT Services",
+  title: "Antivirus Deal of the Week | Manpra Infotech",
   description:
-    "India-born OEM-direct security marketplace with instant delivery, trusted installations, and enterprise-grade IT services. WhatsApp support + GST invoice.",
+    "Genuine antivirus keys with instant Email + WhatsApp delivery. OEM-direct sourcing, GST invoice, and local support in Chandigarh/Panchkula.",
   openGraph: {
-    title: "Manpra Infotech — OEM-direct Digital Security + IT Services",
+    title: "Antivirus Deal of the Week | Manpra Infotech",
     description:
-      "India-born OEM-direct security marketplace with instant delivery, trusted installations, and enterprise-grade IT services. WhatsApp support + GST invoice.",
+      "Genuine antivirus keys with instant Email + WhatsApp delivery. OEM-direct sourcing, GST invoice, and local support in Chandigarh/Panchkula.",
     url: siteUrl,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Manpra Infotech — OEM-direct Digital Security + IT Services",
+    title: "Antivirus Deal of the Week | Manpra Infotech",
     description:
-      "India-born OEM-direct security marketplace with instant delivery, trusted installations, and enterprise-grade IT services. WhatsApp support + GST invoice.",
+      "Genuine antivirus keys with instant Email + WhatsApp delivery. OEM-direct sourcing, GST invoice, and local support in Chandigarh/Panchkula.",
   },
 };
 
-const dealTiles = [
-  { label: "Top Deals", href: "/products" },
-  { label: "Renewal Offers", href: "/products" },
-  { label: "Business Packs", href: "/products" },
-  { label: "Student/Family", href: "/products" },
-];
-
-const topProducts = [
+const bestSellers = [
   {
     name: "Quick Heal Total Security",
     benefit: "Best for family devices and renewals.",
@@ -54,7 +47,7 @@ const topProducts = [
     benefit: "Lightweight protection for daily work.",
     price: 159900,
     mrp: 219900,
-    badge: "LIMITED DEAL",
+    badge: "TRENDING",
     slug: "kaspersky-standard-1pc-1y",
   },
   {
@@ -70,7 +63,7 @@ const topProducts = [
     benefit: "Cloud backup + privacy tools.",
     price: 219900,
     mrp: 299900,
-    badge: "LIMITED DEAL",
+    badge: "TRENDING",
     slug: "norton-360-deluxe-1pc-1y",
   },
   {
@@ -86,7 +79,7 @@ const topProducts = [
     benefit: "Advanced firewall + anti-phishing.",
     price: 169900,
     mrp: 239900,
-    badge: "LIMITED DEAL",
+    badge: "TRENDING",
     slug: "eset-smart-security-1pc-1y",
   },
   {
@@ -102,64 +95,138 @@ const topProducts = [
     benefit: "Business-grade protection for home.",
     price: 179900,
     mrp: 229900,
-    badge: "LIMITED DEAL",
+    badge: "TRENDING",
     slug: "sophos-home-1pc-1y",
   },
 ];
 
-const trustStrip = [
-  "GST Invoice",
-  "Genuine Keys",
-  "Instant Email+WhatsApp Delivery",
-  "Chandigarh + Panchkula Teams",
-  "Secure Checkout",
+const dealTiles = [
+  { label: "Top Deals", href: "/products" },
+  { label: "Renewal Offers", href: "/renewals" },
+  { label: "Business Packs", href: "/products" },
+  { label: "Student/Family", href: "/products" },
 ];
 
-const locations = [
-  {
-    title: "Chandigarh hub",
-    detail: "Installation & support teams on ground.",
-  },
-  {
-    title: "Panchkula hub",
-    detail: "Operations & projects execution center.",
-  },
+const trustStrip = [
+  "OEM-direct",
+  "Genuine keys",
+  "GST invoice",
+  "Instant support",
+  "Chandigarh + Panchkula teams",
 ];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      name: "Manpra Infotech Pvt. Ltd.",
+      url: siteUrl,
+      telephone: "+91 7009955770",
+    },
+    {
+      "@type": "LocalBusiness",
+      name: "Manpra Infotech Pvt. Ltd.",
+      url: siteUrl,
+      telephone: "+91 7009955770",
+      areaServed: ["Chandigarh", "Panchkula", "Mohali", "India"],
+    },
+    {
+      "@type": "Service",
+      name: "Antivirus Keys & Subscriptions",
+      provider: { "@type": "LocalBusiness", name: "Manpra Infotech Pvt. Ltd." },
+      areaServed: "India",
+    },
+  ],
+};
 
 export default function HomePage() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        name: "Manpra Infotech Pvt. Ltd.",
-        url: siteUrl,
-        telephone: "+91 7009955770",
-      },
-      {
-        "@type": "LocalBusiness",
-        name: "Manpra Infotech Pvt. Ltd.",
-        url: siteUrl,
-        telephone: "+91 7009955770",
-        areaServed: ["Chandigarh", "Panchkula", "Mohali", "India"],
-      },
-      {
-        "@type": "Service",
-        name: "Digital Security",
-        provider: { "@type": "LocalBusiness", name: "Manpra Infotech Pvt. Ltd." },
-        areaServed: "India",
-      },
-    ],
-  };
-
   return (
     <main>
       <SiteHeader />
 
-      <Section className="pt-8">
+      <Section className="pt-10">
         <Container>
-          <PromoSlider />
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+            <div>
+              <Badge>Antivirus Deal of the Week</Badge>
+              <h1 className="mt-6 font-display text-4xl font-semibold tracking-tight text-ink sm:text-5xl lg:text-6xl">
+                Antivirus Deal of the Week
+              </h1>
+              <p className="mt-4 text-lg text-steel">
+                Genuine antivirus licenses. Instant delivery by Email +
+                WhatsApp. Activation support included.
+              </p>
+              <div className="mt-6 rounded-3xl border border-white/70 bg-white/80 p-5 shadow-card">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.2em] text-steel">
+                      Deal Price
+                    </p>
+                    <p className="text-3xl font-semibold text-ink">
+                      {formatPrice(179900)}
+                    </p>
+                    <p className="text-xs text-steel line-through">
+                      {formatPrice(249900)}
+                    </p>
+                  </div>
+                  <span className="rounded-full bg-ink px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white">
+                    Use MANPRA10
+                  </span>
+                </div>
+              </div>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <FastBuyButton
+                  productName="Antivirus Deal of the Week"
+                  buttonLabel="Buy Now"
+                  size="lg"
+                />
+                <a
+                  href={whatsappLink}
+                  className={buttonStyles({ variant: "secondary", size: "lg" })}
+                >
+                  WhatsApp Support
+                </a>
+              </div>
+            </div>
+            <Card className="relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-white via-white/60 to-aurora/40" />
+              <div className="relative">
+                <div className="flex items-center justify-between">
+                  <span className="rounded-full bg-ink px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white">
+                    Best Seller
+                  </span>
+                  <span className="text-xs uppercase tracking-[0.3em] text-steel">
+                    Delivery 2–5 mins
+                  </span>
+                </div>
+                <h2 className="mt-5 text-2xl font-semibold text-ink">
+                  Quick Heal Total Security
+                </h2>
+                <p className="mt-2 text-sm text-steel">
+                  OEM-direct key + activation guidance.
+                </p>
+                <div className="mt-6 rounded-2xl bg-ink/95 p-5 text-white">
+                  <p className="text-xs uppercase tracking-[0.3em] text-white/70">
+                    Status
+                  </p>
+                  <p className="mt-2 text-lg font-semibold">Ready to deliver</p>
+                  <p className="mt-2 text-xs text-white/70">
+                    Instant Email + WhatsApp delivery
+                  </p>
+                </div>
+                <div className="mt-6">
+                  <FastBuyButton
+                    productName="Quick Heal Total Security"
+                    buttonLabel="Apply Protection"
+                    size="md"
+                  />
+                </div>
+              </div>
+            </Card>
+          </div>
+
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {dealTiles.map((tile) => (
               <Link
                 key={tile.label}
@@ -173,13 +240,13 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      <Section className="pt-6">
+      <Section>
         <Container>
           <div className="flex items-center justify-between gap-4">
             <div>
-              <Badge>Hot Products</Badge>
+              <Badge>Best Sellers</Badge>
               <h2 className="mt-4 text-3xl font-semibold text-ink">
-                Limited deals you can order instantly
+                Best Sellers (Antivirus)
               </h2>
             </div>
             <Link href="/products" className="text-sm font-semibold text-ink">
@@ -187,7 +254,7 @@ export default function HomePage() {
             </Link>
           </div>
           <div className="mt-6 flex gap-4 overflow-x-auto pb-2">
-            {topProducts.map((product) => (
+            {bestSellers.map((product) => (
               <div
                 key={product.name}
                 className="min-w-[220px] flex-1 rounded-2xl border border-white/70 bg-white/80 p-4 shadow-card"
@@ -210,68 +277,59 @@ export default function HomePage() {
                     {formatPrice(product.mrp)}
                   </p>
                 </div>
-                <Link
-                  href={`/products/${product.slug}`}
-                  className={buttonStyles({ variant: "secondary", size: "sm", className: "mt-4 inline-flex" })}
-                >
-                  Buy Now
-                </Link>
+                <div className="mt-4 flex items-center gap-2">
+                  <FastBuyButton
+                    productName={product.name}
+                    buttonLabel="Buy"
+                    variant="secondary"
+                    size="sm"
+                  />
+                  <Link
+                    href={`/products/${product.slug}`}
+                    className="text-xs font-semibold text-ink"
+                  >
+                    View
+                  </Link>
+                </div>
               </div>
             ))}
           </div>
-          <a
-            href={whatsappLink}
-            className="fixed bottom-5 right-4 z-40 rounded-full bg-ink px-4 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white shadow-card sm:hidden"
-          >
-            WhatsApp to order
-          </a>
         </Container>
       </Section>
 
       <Section>
         <Container>
-          <div className="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-steel">
-            {trustStrip.map((item) => (
-              <span key={item} className="flex items-center gap-2 rounded-full bg-white/80 px-4 py-2">
-                <span className="h-2 w-2 rounded-full bg-neon" />
-                {item}
-              </span>
-            ))}
-          </div>
-          <Card className="mt-8 bg-gradient-to-br from-white via-white/70 to-aurora/30">
-            <h2 className="text-3xl font-semibold text-ink">
-              Born & Built in India
+          <div className="rounded-3xl border border-white/70 bg-white/80 p-6 shadow-card">
+            <h2 className="text-2xl font-semibold text-ink">
+              Why buy from Manpra Infotech
             </h2>
-            <p className="mt-3 text-sm text-steel">
-              OEM-direct marketplace with local engineers, transparent billing,
-              and enterprise-grade delivery.
-            </p>
-          </Card>
-        </Container>
-      </Section>
-
-      <Section>
-        <Container>
-          <div className="grid gap-6 md:grid-cols-2">
-            {locations.map((location) => (
-              <Card key={location.title}>
-                <h3 className="text-xl font-semibold text-ink">
-                  {location.title}
-                </h3>
-                <p className="mt-2 text-sm text-steel">{location.detail}</p>
-                <Link
-                  href="/locations"
-                  className="mt-4 inline-flex text-sm font-semibold text-ink"
-                >
-                  View location proof
-                </Link>
-              </Card>
-            ))}
+            <div className="mt-5 flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-steel">
+              {trustStrip.map((item) => (
+                <span key={item} className="rounded-full bg-white/80 px-4 py-2">
+                  {item}
+                </span>
+              ))}
+            </div>
           </div>
         </Container>
       </Section>
 
       <SiteFooter />
+
+      <div className="fixed bottom-4 left-4 right-4 z-40 flex gap-3 sm:hidden">
+        <FastBuyButton
+          productName="Antivirus Deal of the Week"
+          buttonLabel="Buy Now"
+          size="lg"
+          className="flex-1"
+        />
+        <a
+          href={whatsappLink}
+          className={buttonStyles({ variant: "secondary", size: "lg", className: "flex-1" })}
+        >
+          WhatsApp
+        </a>
+      </div>
 
       <script
         type="application/ld+json"

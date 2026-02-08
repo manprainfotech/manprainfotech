@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { getSiteUrl, siteName } from "@/lib/site";
 import OfferStrip from "@/components/OfferStrip";
+import SoftProtection from "@/components/SoftProtection";
 
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
@@ -39,6 +40,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="min-h-screen bg-mesh bg-radial-glow font-sans text-ink">
         <OfferStrip />
+        <SoftProtection />
         {children}
         {gaId ? (
           <>

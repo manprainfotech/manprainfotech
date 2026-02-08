@@ -67,7 +67,7 @@ export default function ContactPage() {
                 Installation & Support Hub
               </p>
               <a
-                href="https://www.google.com/maps/search/?api=1&query=Manpra+Infotech+Chandigarh"
+                href="https://share.google/10b79ZmSpnFKk7ctr"
                 className="mt-4 inline-flex text-sm font-semibold text-ink"
               >
                 View on Google Maps
@@ -79,7 +79,7 @@ export default function ContactPage() {
                 Operations & Projects Hub
               </p>
               <a
-                href="https://www.google.com/maps/search/?api=1&query=Manpra+Infotech+Panchkula"
+                href="https://share.google/v3yFFRT46lKt9MfRt"
                 className="mt-4 inline-flex text-sm font-semibold text-ink"
               >
                 View on Google Maps

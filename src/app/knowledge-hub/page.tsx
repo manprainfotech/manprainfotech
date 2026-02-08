@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import { Badge, Card, Container, Section } from "@/components/ui";
@@ -10,6 +11,16 @@ export const metadata: Metadata = {
 };
 
 const hubItems = [
+  {
+    title: "How to install antivirus on Windows",
+    description: "Clean installation steps for Windows devices.",
+    href: "/knowledge-hub/windows-install",
+  },
+  {
+    title: "Activation troubleshooting",
+    description: "Quick fixes for license activation issues.",
+    href: "/knowledge-hub/activation-troubleshooting",
+  },
   {
     title: "Installation guides (coming soon)",
     description: "Step-by-step playbooks for CCTV and networking installs.",
@@ -47,7 +58,15 @@ export default function KnowledgeHubPage() {
           <div className="grid gap-6 md:grid-cols-3">
             {hubItems.map((item) => (
               <Card key={item.title}>
-                <h2 className="text-xl font-semibold text-ink">{item.title}</h2>
+                {item.href ? (
+                  <Link href={item.href} className="text-xl font-semibold text-ink">
+                    {item.title}
+                  </Link>
+                ) : (
+                  <h2 className="text-xl font-semibold text-ink">
+                    {item.title}
+                  </h2>
+                )}
                 <p className="mt-3 text-sm text-steel">{item.description}</p>
               </Card>
             ))}
