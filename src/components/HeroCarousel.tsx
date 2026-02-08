@@ -9,20 +9,21 @@ import { cn } from "@/lib/cn";
 const slides = [
   {
     title: "Antivirus delivered instantly",
-    subtitle: "Email + WhatsApp delivery in minutes. Genuine keys. GST invoice.",
-    ctaLabel: "Shop Now",
+    subtitle:
+      "Email + WhatsApp delivery in minutes. Genuine keys. GST invoice.",
+    ctaLabel: "Shop Antivirus",
     ctaHref: "/products",
   },
   {
     title: "Virus alert / threat detected",
-    subtitle: "Fix threats fast with OEM-direct protection and instant keys.",
+    subtitle: "Fix threats fast with OEM-direct protection.",
     ctaLabel: "Fix Now",
     ctaHref: "/products",
   },
   {
     title: "Renewal Due? Auto reminders + priority support",
-    subtitle: "We alert before expiry and keep your protection live.",
-    ctaLabel: "Renew Now",
+    subtitle: "We alert before expiry and keep protection live.",
+    ctaLabel: "View Renewals",
     ctaHref: "/products?tab=renewals",
   },
 ];
@@ -135,7 +136,7 @@ export default function HeroCarousel() {
           </div>
           <div className="relative mt-6 rounded-2xl bg-ink/95 p-4 text-white">
             <span className="absolute right-4 top-3 text-[10px] uppercase tracking-[0.2em] text-white/60">
-              MANPRA
+              MANPRA VERIFIED
             </span>
             <p className="text-xs uppercase tracking-[0.3em] text-white/70">
               Instant delivery
@@ -147,10 +148,12 @@ export default function HeroCarousel() {
             <span className="absolute right-10 top-16 h-1.5 w-1.5 rounded-full bg-neon/70 animate-[pulseSoft_6s_ease-in-out_infinite]" />
             <span className="absolute left-16 bottom-16 h-1.5 w-1.5 rounded-full bg-ink/20 animate-[pulseSoft_7s_ease-in-out_infinite]" />
           </div>
+          <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+            <span className="text-[10px] font-semibold uppercase tracking-[0.8em] text-ink/10">
+              MANPRA INFOTECH
+            </span>
+          </div>
         </div>
-        <span className="absolute -bottom-6 right-6 text-[11px] uppercase tracking-[0.3em] text-steel/60">
-          MANPRA VERIFIED
-        </span>
       </div>
     </div>
   );
