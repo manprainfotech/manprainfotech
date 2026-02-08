@@ -1,59 +1,57 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { buttonStyles } from "@/components/ui/Button";
 import { cn } from "@/lib/cn";
 
-const offers = [
-  "MANPRA10 10% OFF",
-  "Instant Key Delivery (Email + WhatsApp)",
-  "OEM-direct + GST invoice",
-  "Activation support included",
-];
+const offerCode = "MANPRA10";
 
 export default function OfferStrip() {
-  const [index, setIndex] = useState(0);
+  const [copied, setCopied] = useState(false);
 
-  useEffect(() => {
-    const timer = window.setInterval(() => {
-      setIndex((prev) => (prev + 1) % offers.length);
-    }, 4200);
-
-    return () => window.clearInterval(timer);
-  }, []);
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(offerCode);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 1800);
+    } catch {
+      setCopied(false);
+    }
+  };
 
   return (
     <div className="sticky top-0 z-50 border-b border-white/60 bg-white/80 backdrop-blur">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-6 py-3 text-xs font-semibold uppercase tracking-[0.25em] text-steel">
-        <div className="flex items-center gap-3">
-          <span className="flex items-center gap-2 rounded-full bg-ink px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.3em] text-white">
-            <span className="h-1.5 w-1.5 rounded-full bg-red-400 animate-[pulseSoft_2.8s_ease-in-out_infinite]" />
-            Live
+        <div className="flex flex-wrap items-center gap-3">
+          <span className="rounded-full bg-ink px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.3em] text-white">
+            {offerCode}
           </span>
-          <div className="relative h-4 overflow-hidden">
-            {offers.map((offer, idx) => (
-              <span
-                key={offer}
-                className={cn(
-                  "absolute left-0 top-0 transition-all duration-500",
-                  idx === index
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-3 opacity-0"
-                )}
-              >
-                {offer}
-              </span>
-            ))}
-          </div>
+          <span>Instant Delivery</span>
+          <span>WhatsApp Support</span>
+          <span>GST Invoice</span>
         </div>
-        <div className="flex flex-wrap gap-2">
-          <a
-            href="https://wa.me/917009955770"
+        <div className="flex flex-wrap items-center gap-2">
+          <button
+            onClick={handleCopy}
             className={buttonStyles({ variant: "secondary", size: "sm" })}
           >
-            Chat on WhatsApp
+            Copy Code
+          </button>
+          <a
+            href="https://wa.me/917009955770"
+            className={buttonStyles({ size: "sm" })}
+          >
+            WhatsApp
           </a>
         </div>
+      </div>
+      <div
+        className={cn(
+          "pointer-events-none absolute right-6 top-14 rounded-full bg-ink px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-white shadow-card transition",
+          copied ? "opacity-100" : "opacity-0"
+        )}
+      >
+        Coupon Copied
       </div>
     </div>
   );

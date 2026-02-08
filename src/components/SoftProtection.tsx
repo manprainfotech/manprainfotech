@@ -9,31 +9,23 @@ export default function SoftProtection() {
   useEffect(() => {
     if (pathname.startsWith("/admin")) return;
 
-    // Soft deterrent only. This cannot prevent screenshots or screen recording.
-    const shouldAllow = (target: EventTarget | null) => {
+    // Soft deterrent only. This cannot prevent screenshots or recordings.
+    const isProtected = (target: EventTarget | null) => {
       if (!(target instanceof HTMLElement)) return false;
+      if (target.closest("[data-protect]")) return true;
       const tag = target.tagName.toLowerCase();
-      if (["input", "textarea", "select"].includes(tag)) return true;
-      if (target.isContentEditable) return true;
-      return false;
+      return tag === "img";
     };
 
     const handleContextMenu = (event: MouseEvent) => {
-      if (shouldAllow(event.target)) return;
-      event.preventDefault();
-    };
-
-    const handleSelectStart = (event: Event) => {
-      if (shouldAllow(event.target)) return;
+      if (!isProtected(event.target)) return;
       event.preventDefault();
     };
 
     document.addEventListener("contextmenu", handleContextMenu);
-    document.addEventListener("selectstart", handleSelectStart);
 
     return () => {
       document.removeEventListener("contextmenu", handleContextMenu);
-      document.removeEventListener("selectstart", handleSelectStart);
     };
   }, [pathname]);
 
