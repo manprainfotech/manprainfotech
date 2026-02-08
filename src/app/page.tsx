@@ -1,41 +1,58 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { getSiteUrl } from "@/lib/site";
+import { formatPrice } from "@/lib/format";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import HeroSlider from "@/components/HeroSlider";
 import { Badge, Card, Container, Section } from "@/components/ui";
 import { buttonStyles } from "@/components/ui/Button";
 
 const siteUrl = getSiteUrl();
 const whatsappNumber = "917009955770";
 const whatsappMessage = encodeURIComponent(
-  "Hello Manpra Infotech, I need OEM-direct security and IT services."
+  "Hello Manpra Infotech, I want to buy OEM-direct protection and get a quote."
 );
 const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
 export const metadata: Metadata = {
   title: "Manpra Infotech — OEM-direct Digital Security + IT Services",
   description:
-    "Manpra Infotech is an India-based OEM-direct IT security and installations partner. Digital security, CCTV, networking, and IT projects with local teams in Chandigarh and Panchkula.",
+    "India-born OEM-direct security marketplace with instant delivery, trusted installations, and enterprise-grade IT services. WhatsApp support + GST invoice.",
   openGraph: {
     title: "Manpra Infotech — OEM-direct Digital Security + IT Services",
     description:
-      "Manpra Infotech is an India-based OEM-direct IT security and installations partner. Digital security, CCTV, networking, and IT projects with local teams in Chandigarh and Panchkula.",
+      "India-born OEM-direct security marketplace with instant delivery, trusted installations, and enterprise-grade IT services. WhatsApp support + GST invoice.",
     url: siteUrl,
   },
   twitter: {
     card: "summary_large_image",
     title: "Manpra Infotech — OEM-direct Digital Security + IT Services",
     description:
-      "Manpra Infotech is an India-based OEM-direct IT security and installations partner. Digital security, CCTV, networking, and IT projects with local teams in Chandigarh and Panchkula.",
+      "India-born OEM-direct security marketplace with instant delivery, trusted installations, and enterprise-grade IT services. WhatsApp support + GST invoice.",
   },
 };
+
+const slides = [
+  {
+    title: "Antivirus Mega Sale — Genuine Keys in Minutes",
+    description: "Direct OEM + Manpra team support. Instant delivery on email and WhatsApp.",
+  },
+  {
+    title: "Renewal Reminder System — We Alert Before Expiry",
+    description: "Never miss a renewal window. We keep every license visible.",
+  },
+  {
+    title: "Born & Built in India — OEM-direct + Manpra Team Support",
+    description: "Local hubs, real engineers, PAN-India execution.",
+  },
+];
 
 const pillars = [
   {
     title: "Digital Security",
-    description: "Antivirus, endpoint, renewals, and audit-ready reporting.",
-    points: ["OEM-direct licensing", "Instant renewals", "Health checks"],
+    description: "Antivirus, endpoint, renewals, and health checks.",
+    points: ["OEM-direct licensing", "Instant delivery", "Renewal alerts"],
   },
   {
     title: "CCTV + Networking Installations",
@@ -56,21 +73,39 @@ const trustStrip = [
   "PAN India",
 ];
 
-const trustLayer = [
-  { title: "GST Registered", detail: "Compliance-ready billing." },
-  { title: "MSME Verified", detail: "Recognized Indian enterprise." },
-  { title: "OEM-Direct", detail: "No anonymous marketplace sourcing." },
-  { title: "Local Offices", detail: "Chandigarh + Panchkula teams." },
+const trustChips = [
+  "Genuine Keys",
+  "GST Invoice",
+  "WhatsApp Support",
+  "PAN India",
+  "OEM-direct",
+  "Secure Checkout",
 ];
 
-const locations = [
+const topProducts = [
   {
-    title: "Chandigarh Hub",
-    detail: "Installation & support teams on ground.",
+    name: "Quick Heal Total Security",
+    benefit: "Best for family devices and renewals.",
+    price: 179900,
+    slug: "quick-heal-total-security-1pc-1y",
   },
   {
-    title: "Panchkula Hub",
-    detail: "Operations & projects execution center.",
+    name: "Kaspersky Standard",
+    benefit: "Lightweight protection for daily work.",
+    price: 159900,
+    slug: "kaspersky-standard-1pc-1y",
+  },
+  {
+    name: "McAfee Total Protection",
+    benefit: "Secure payments and identity protection.",
+    price: 199900,
+    slug: "mcafee-total-protection-1pc-1y",
+  },
+  {
+    name: "Norton 360 Deluxe",
+    benefit: "Cloud backup + privacy tools.",
+    price: 219900,
+    slug: "norton-360-deluxe-1pc-1y",
   },
 ];
 
@@ -89,10 +124,33 @@ const roadmap = [
   },
 ];
 
+const locations = [
+  {
+    title: "Chandigarh hub",
+    detail: "Installation & support teams on ground.",
+  },
+  {
+    title: "Panchkula hub",
+    detail: "Operations & projects execution center.",
+  },
+];
+
 export default function HomePage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      {
+        "@type": "Organization",
+        name: "Manpra Infotech Pvt. Ltd.",
+        url: siteUrl,
+        telephone: "+91 7009955770",
+        contactPoint: {
+          "@type": "ContactPoint",
+          telephone: "+91 7009955770",
+          contactType: "sales",
+          availableLanguage: ["en", "hi"],
+        },
+      },
       {
         "@type": "LocalBusiness",
         name: "Manpra Infotech Pvt. Ltd.",
@@ -104,6 +162,18 @@ export default function HomePage() {
           addressCountry: "IN",
           addressRegion: "Chandigarh",
         },
+        location: [
+          {
+            "@type": "Place",
+            name: "Chandigarh Hub",
+            address: { "@type": "PostalAddress", addressLocality: "Chandigarh", addressCountry: "IN" },
+          },
+          {
+            "@type": "Place",
+            name: "Panchkula Hub",
+            address: { "@type": "PostalAddress", addressLocality: "Panchkula", addressCountry: "IN" },
+          },
+        ],
       },
       {
         "@type": "Service",
@@ -130,17 +200,17 @@ export default function HomePage() {
     <main>
       <SiteHeader />
 
-      <Section className="pt-20">
+      <Section className="pt-16">
         <Container>
           <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
             <div>
-              <Badge>OEM-Direct IT Security</Badge>
+              <Badge>Marketplace Offers</Badge>
               <h1 className="mt-6 font-display text-4xl font-semibold tracking-tight text-ink sm:text-5xl lg:text-6xl">
-                Manpra Infotech — OEM-direct Digital Security + IT Services
+                Antivirus Mega Sale — Genuine Keys in Minutes
               </h1>
               <p className="mt-6 text-lg text-steel">
-                India-based, mission-driven teams delivering security, CCTV,
-                networking, and enterprise IT projects with local accountability.
+                OEM-direct digital security, installations, and IT services with
+                instant delivery and WhatsApp support.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <a href={whatsappLink} className={buttonStyles({ size: "lg" })}>
@@ -170,38 +240,7 @@ export default function HomePage() {
             <Card className="relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-white via-white/60 to-aurora/40" />
               <div className="relative">
-                <div className="flex items-center justify-between">
-                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-steel">
-                    Live enterprise pulse
-                  </p>
-                  <span className="h-2 w-2 rounded-full bg-neon animate-[pulseSoft_4s_ease-in-out_infinite]" />
-                </div>
-                <h2 className="mt-4 text-2xl font-semibold text-ink">
-                  A living system, not a static vendor.
-                </h2>
-                <p className="mt-3 text-sm text-steel">
-                  Devices, renewals, and on-ground teams synced in one view.
-                </p>
-                <div className="relative mt-6 h-40 rounded-2xl bg-ink/95 p-4">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(132,246,255,0.18),transparent_55%)]" />
-                  <span className="absolute left-6 top-6 h-2.5 w-2.5 rounded-full bg-neon shadow-[0_0_16px_rgba(110,241,183,0.7)] animate-[pulseSoft_5s_ease-in-out_infinite]" />
-                  <span className="absolute left-20 top-20 h-2 w-2 rounded-full bg-aurora animate-[pulseSoft_6s_ease-in-out_infinite]" />
-                  <span className="absolute right-8 top-10 h-2.5 w-2.5 rounded-full bg-white/80 animate-[pulseSoft_7s_ease-in-out_infinite]" />
-                  <span className="absolute bottom-8 left-12 h-1.5 w-1.5 rounded-full bg-white/60" />
-                  <span className="absolute bottom-10 right-14 h-1.5 w-1.5 rounded-full bg-white/60" />
-                  <div className="absolute left-8 top-10 h-[1px] w-20 bg-white/20" />
-                  <div className="absolute left-20 top-20 h-[1px] w-28 bg-white/15" />
-                  <div className="absolute right-14 top-12 h-16 w-[1px] bg-white/15" />
-                  <div className="absolute bottom-8 left-12 h-12 w-[1px] bg-white/10" />
-                </div>
-                <div className="mt-4 flex items-center gap-4 text-xs text-steel">
-                  <span className="rounded-full bg-white/70 px-3 py-1">
-                    OEM-direct coverage
-                  </span>
-                  <span className="rounded-full bg-white/70 px-3 py-1">
-                    24/7 renewal watch
-                  </span>
-                </div>
+                <HeroSlider slides={slides} />
               </div>
             </Card>
           </div>
@@ -230,15 +269,58 @@ export default function HomePage() {
         </Container>
       </Section>
 
+      <Section className="pt-0">
+        <Container>
+          <div className="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-steel">
+            {trustChips.map((chip) => (
+              <span key={chip} className="flex items-center gap-2 rounded-full bg-white/80 px-4 py-2">
+                <span className="h-2 w-2 rounded-full bg-neon" />
+                {chip}
+              </span>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
       <Section>
         <Container>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {trustLayer.map((item) => (
-              <Card key={item.title} className="p-6">
-                <h3 className="text-base font-semibold text-ink">
-                  {item.title}
+          <div className="flex items-center justify-between gap-4">
+            <div>
+              <Badge>Top products</Badge>
+              <h2 className="mt-4 text-3xl font-semibold text-ink">
+                Bestsellers with instant delivery
+              </h2>
+            </div>
+            <Link href="/products" className="text-sm font-semibold text-ink">
+              View all
+            </Link>
+          </div>
+          <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {topProducts.map((product) => (
+              <Card key={product.name} className="flex flex-col gap-4">
+                <div className="flex items-center justify-between">
+                  <span className="rounded-full bg-mist px-3 py-1 text-xs font-semibold text-steel">
+                    Fast Checkout
+                  </span>
+                  <span className="text-xs uppercase tracking-[0.2em] text-steel">
+                    OEM
+                  </span>
+                </div>
+                <h3 className="text-lg font-semibold text-ink">
+                  {product.name}
                 </h3>
-                <p className="mt-2 text-sm text-steel">{item.detail}</p>
+                <p className="text-sm text-steel">{product.benefit}</p>
+                <div className="mt-auto flex items-center justify-between">
+                  <span className="text-lg font-semibold text-ink">
+                    {formatPrice(product.price)}
+                  </span>
+                  <Link
+                    href={`/products/${product.slug}`}
+                    className={buttonStyles({ variant: "secondary", size: "sm" })}
+                  >
+                    Buy Now
+                  </Link>
+                </div>
               </Card>
             ))}
           </div>
@@ -303,11 +385,11 @@ export default function HomePage() {
             <div>
               <Badge>OEM roadmap</Badge>
               <h2 className="mt-4 text-3xl font-semibold text-ink">
-                OEMs are welcome to partner with Manpra.
+                We onboard OEM partners continuously.
               </h2>
               <p className="mt-3 text-sm text-steel">
-                We onboard OEM partners continuously. Enterprise and government
-                projects benefit from direct channels and accountability.
+                OEMs can partner with Manpra for direct market access, trusted
+                installations, and enterprise delivery.
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-3">
@@ -323,33 +405,6 @@ export default function HomePage() {
             <div>
               <Link href="/brands" className={buttonStyles({ size: "lg" })}>
                 View OEM partnerships
-              </Link>
-            </div>
-          </Card>
-        </Container>
-      </Section>
-
-      <Section>
-        <Container>
-          <Card className="flex flex-col gap-6 bg-gradient-to-br from-white via-white/70 to-aurora/30">
-            <div>
-              <h2 className="text-3xl font-semibold text-ink">
-                Ready for a site visit or quote?
-              </h2>
-              <p className="mt-3 text-lg text-steel">
-                WhatsApp-enabled support for installations, renewals, and
-                enterprise planning.
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-4">
-              <a href={whatsappLink} className={buttonStyles({ size: "lg" })}>
-                WhatsApp: +91 7009955770
-              </a>
-              <Link
-                href="/services"
-                className={buttonStyles({ variant: "secondary", size: "lg" })}
-              >
-                Explore services
               </Link>
             </div>
           </Card>

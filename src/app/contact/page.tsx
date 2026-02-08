@@ -58,6 +58,37 @@ export default function ContactPage() {
         </Container>
       </Section>
 
+      <Section>
+        <Container>
+          <div className="grid gap-6 md:grid-cols-2">
+            <Card>
+              <h2 className="text-2xl font-semibold text-ink">Chandigarh Hub</h2>
+              <p className="mt-2 text-sm text-steel">
+                Installation & Support Hub
+              </p>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Manpra+Infotech+Chandigarh"
+                className="mt-4 inline-flex text-sm font-semibold text-ink"
+              >
+                View on Google Maps
+              </a>
+            </Card>
+            <Card>
+              <h2 className="text-2xl font-semibold text-ink">Panchkula Hub</h2>
+              <p className="mt-2 text-sm text-steel">
+                Operations & Projects Hub
+              </p>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Manpra+Infotech+Panchkula"
+                className="mt-4 inline-flex text-sm font-semibold text-ink"
+              >
+                View on Google Maps
+              </a>
+            </Card>
+          </div>
+        </Container>
+      </Section>
+
       <SiteFooter />
     </main>
   );

@@ -21,11 +21,15 @@ const locations = [
     title: "Chandigarh",
     subtitle: "Installation & Support Hub",
     detail: "On-site deployment, hardware planning, and rapid response teams.",
+    mapLink:
+      "https://www.google.com/maps/search/?api=1&query=Manpra+Infotech+Chandigarh",
   },
   {
     title: "Panchkula",
     subtitle: "Operations & Projects Hub",
     detail: "Project management, OEM coordination, and enterprise delivery.",
+    mapLink:
+      "https://www.google.com/maps/search/?api=1&query=Manpra+Infotech+Panchkula",
   },
 ];
 
@@ -59,6 +63,12 @@ export default function LocationsPage() {
                   {location.subtitle}
                 </p>
                 <p className="mt-3 text-sm text-steel">{location.detail}</p>
+                <a
+                  href={location.mapLink}
+                  className="mt-4 inline-flex text-sm font-semibold text-ink"
+                >
+                  View on Google Maps
+                </a>
               </Card>
             ))}
           </div>

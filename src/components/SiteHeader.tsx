@@ -10,6 +10,9 @@ export default function SiteHeader() {
           MANPRA INFOTECH
         </Link>
         <nav className="flex flex-wrap items-center justify-end gap-x-6 gap-y-2 text-xs font-semibold uppercase tracking-[0.2em] text-ink/70">
+          <Link href="/products" className="text-ink">
+            Shop
+          </Link>
           <Link href="/about">About Manpra</Link>
           <Link href="/services">Services</Link>
           <Link href="/installations">Installations</Link>

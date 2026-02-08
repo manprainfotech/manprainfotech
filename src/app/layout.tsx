@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import Script from "next/script";
 import { getSiteUrl, siteName } from "@/lib/site";
+import OfferStrip from "@/components/OfferStrip";
 
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
@@ -37,6 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-screen bg-mesh bg-radial-glow font-sans text-ink">
+        <OfferStrip />
         {children}
         {gaId ? (
           <>
